@@ -147,13 +147,7 @@ int main(int argc, char* argv[])
 
     int demoId = 2;
     std::vector<Demo*> demos;
-    //demos.push_back(new DemoQuad(demoInputs));
-    //demos.push_back(new DemoFBO(demoInputs));
-    //demos.push_back(new DemoMipmap(demoInputs));
-   // demos.push_back(new DemoTexture3D(demoInputs));
     demos.push_back(new DemoFX(demoInputs));
-    // TODO: Here, add other demos
-    //demos.push_back(new DemoBloom(demoInputs));
 
 #ifdef USE_PAUL_DLL
     // Load some demo from dll

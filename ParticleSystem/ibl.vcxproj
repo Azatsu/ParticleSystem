@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -91,13 +91,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ParticleData.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_dll_wrapper.cpp" />
-    <ClCompile Include="src\demo_fbo.cpp" />
     <ClCompile Include="src\demo_fx.cpp" />
-    <ClCompile Include="src\demo_quad.cpp" />
-    <ClCompile Include="src\demo_texture_3d.cpp" />
     <ClCompile Include="src\gl_helpers.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mesh_builder.cpp" />
@@ -124,15 +122,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ParticleData.h" />
     <ClInclude Include="src\calc.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\data.hpp" />
     <ClInclude Include="src\demo.hpp" />
     <ClInclude Include="src\demo_dll_wrapper.hpp" />
-    <ClInclude Include="src\demo_fbo.hpp" />
     <ClInclude Include="src\demo_fx.hpp" />
-    <ClInclude Include="src\demo_quad.hpp" />
-    <ClInclude Include="src\demo_texture_3d.hpp" />
     <ClInclude Include="src\gl_helpers.hpp" />
     <ClInclude Include="src\mesh_builder.hpp" />
     <ClInclude Include="src\types.hpp" />
