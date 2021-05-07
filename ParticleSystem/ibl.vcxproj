@@ -91,7 +91,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ParticleData.cpp" />
+    <ClCompile Include="ParticleGenerator.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_dll_wrapper.cpp" />
@@ -99,6 +99,7 @@
     <ClCompile Include="src\gl_helpers.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mesh_builder.cpp" />
+    <ClCompile Include="src\ParticleData.cpp" />
     <ClCompile Include="third_party\src\glad.c" />
     <ClCompile Include="third_party\src\imgui.cpp" />
     <ClCompile Include="third_party\src\imgui_demo.cpp" />
@@ -122,7 +123,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ParticleData.h" />
+    <ClInclude Include="ParticleGenerator.h" />
     <ClInclude Include="src\calc.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\data.hpp" />
@@ -131,6 +132,8 @@
     <ClInclude Include="src\demo_fx.hpp" />
     <ClInclude Include="src\gl_helpers.hpp" />
     <ClInclude Include="src\mesh_builder.hpp" />
+    <ClInclude Include="src\ParticleData.h" />
+    <ClInclude Include="src\ParticleEmitter.h" />
     <ClInclude Include="src\types.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

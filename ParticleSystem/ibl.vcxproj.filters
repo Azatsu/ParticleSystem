@@ -41,6 +41,8 @@
     <ClCompile Include="src\mesh_builder.cpp" />
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_fx.cpp" />
+    <ClCompile Include="src\ParticleData.cpp" />
+    <ClCompile Include="ParticleGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="third_party">
@@ -57,5 +59,8 @@
     <ClInclude Include="src\mesh_builder.hpp" />
     <ClInclude Include="src\data.hpp" />
     <ClInclude Include="src\demo_fx.hpp" />
+    <ClInclude Include="src\ParticleData.h" />
+    <ClInclude Include="ParticleGenerator.h" />
+    <ClInclude Include="src\ParticleEmitter.h" />
   </ItemGroup>
 </Project>
