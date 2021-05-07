@@ -31,7 +31,7 @@ public:
 class CirclePosGen : ParticleGenerator
 {
 public:
-
+	
 	float4 center;
 	float radX;
 	float radY;
@@ -44,4 +44,19 @@ public:
 	{};
 
 	virtual void Generate(double dt, ParticleData* p, size_t start, size_t end) override;
+};
+
+class BasicColorGen : public ParticleGenerator
+{
+public:
+	float4 minStartCol;
+	float4 maxStartCol;
+	float4 minEndCol;
+	float4 maxEndCol;
+	
+	BasicColorGen() : minStartCol(0.f, 0.f, 0.f, 0.f), maxStartCol(0.f, 0.f, 0.f, 0.f),
+		minEndCol(0.f, 0.f, 0.f, 0.f), maxEndCol(0.f, 0.f, 0.f, 0.f)
+	{ };
+
+	virtual void generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
 };
