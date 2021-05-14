@@ -29,7 +29,10 @@ public:
 			p->Wake(i);
 	};
 
-	void AddGenerator(std::shared_ptr<ParticleGenerator> gen) { m_generators.push_back(gen); }
+	void AddGenerator(std::shared_ptr<ParticleGenerator> gen) 
+	{ 
+		m_generators.push_back(gen); 
+	}
 };
 
 #endif

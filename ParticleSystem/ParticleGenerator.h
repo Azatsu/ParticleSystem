@@ -58,5 +58,55 @@ public:
 		minEndCol(0.f, 0.f, 0.f, 0.f), maxEndCol(0.f, 0.f, 0.f, 0.f)
 	{ };
 
-	virtual void generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
+	virtual void Generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
+};
+
+class BasicVelGen : public ParticleGenerator
+{
+public:
+	float4 minStartVel;
+	float4 maxStartVel;
+public:
+	BasicVelGen() : minStartVel(0.f, 0.f, 0.f, 0.f), maxStartVel(0.f, 0.f, 0.f, 0.f) { }
+
+	virtual void Generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
+};
+
+class SphereVelGen : public ParticleGenerator
+{
+public:
+	float minVel;
+	float maxVel;
+public:
+	SphereVelGen() : minVel(0.0), maxVel(0.0) { }
+
+	virtual void Generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
+};
+
+class VelFromPosGen : public ParticleGenerator
+{
+public:
+	float4 offset;
+	float minScale;
+	float maxScale;
+public:
+	VelFromPosGen() : offset(0.f, 0.f, 0.f, 0.f), minScale(0.0), maxScale(0.0) { }
+	VelFromPosGen(const float4& off, double minS, double maxS)
+		: offset(off)
+		, minScale((float)minS)
+		, maxScale((float)maxS)
+	{ }
+
+	virtual void Generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
+};
+
+class BasicTimeGen : public ParticleGenerator
+{
+public:
+	float minTime;
+	float maxTime;
+public:
+	BasicTimeGen() : minTime(0.0), maxTime(0.0) { }
+
+	virtual void Generate(double dt, ParticleData* p, size_t startId, size_t endId) override;
 };
