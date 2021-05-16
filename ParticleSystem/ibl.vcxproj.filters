@@ -44,6 +44,9 @@
     <ClCompile Include="src\ParticleData.cpp" />
     <ClCompile Include="ParticleGenerator.cpp" />
     <ClCompile Include="src\ParticleUpdater.cpp" />
+    <ClCompile Include="src\particleRenderer.cpp" />
+    <ClCompile Include="src\glParticleRenderer.cpp" />
+    <ClCompile Include="src\particleSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="third_party">
@@ -64,5 +67,8 @@
     <ClInclude Include="ParticleGenerator.h" />
     <ClInclude Include="src\ParticleEmitter.h" />
     <ClInclude Include="src\ParticleUpdater.hpp" />
+    <ClInclude Include="src\particleRenderer.hpp" />
+    <ClInclude Include="src\glParticleRenderer.hpp" />
+    <ClInclude Include="src\ParticleSystem.hpp" />
   </ItemGroup>
 </Project>

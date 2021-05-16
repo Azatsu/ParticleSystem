@@ -96,10 +96,13 @@
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_dll_wrapper.cpp" />
     <ClCompile Include="src\demo_fx.cpp" />
+    <ClCompile Include="src\glParticleRenderer.cpp" />
     <ClCompile Include="src\gl_helpers.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mesh_builder.cpp" />
     <ClCompile Include="src\ParticleData.cpp" />
+    <ClCompile Include="src\particleRenderer.cpp" />
+    <ClCompile Include="src\particleSystem.cpp" />
     <ClCompile Include="src\ParticleUpdater.cpp" />
     <ClCompile Include="third_party\src\glad.c" />
     <ClCompile Include="third_party\src\imgui.cpp" />
@@ -131,10 +134,13 @@
     <ClInclude Include="src\demo.hpp" />
     <ClInclude Include="src\demo_dll_wrapper.hpp" />
     <ClInclude Include="src\demo_fx.hpp" />
+    <ClInclude Include="src\glParticleRenderer.hpp" />
     <ClInclude Include="src\gl_helpers.hpp" />
     <ClInclude Include="src\mesh_builder.hpp" />
     <ClInclude Include="src\ParticleData.h" />
     <ClInclude Include="src\ParticleEmitter.h" />
+    <ClInclude Include="src\particleRenderer.hpp" />
+    <ClInclude Include="src\ParticleSystem.hpp" />
     <ClInclude Include="src\ParticleUpdater.hpp" />
     <ClInclude Include="src\types.hpp" />
   </ItemGroup>

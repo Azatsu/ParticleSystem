@@ -2,7 +2,7 @@
 
 float Mix(float x, float y, float a)
 {
-	return x * (1.0 - a) + y * a;
+	return x * (1.0f - a) + y * a;
 }
 
 float Dot4(float4 a, float4 b)
