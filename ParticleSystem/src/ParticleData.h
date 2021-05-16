@@ -23,8 +23,9 @@ public:
 	size_t count      = 0;
 	size_t countAlive = 0;
 
+	ParticleData() {};
 	explicit ParticleData(size_t maxCount);
-	~ParticleData();
+	~ParticleData() {};
 
 	ParticleData(const ParticleData&)            = delete;
 	ParticleData& operator=(const ParticleData&) = delete;
@@ -33,6 +34,11 @@ public:
 	void Generate(size_t maxSize);
 	void Kill(size_t ID);
 	void Wake(size_t ID);
+
+	static size_t ComputeMemoryUsage(const ParticleData& p)
+	{
+		return p.count * (7 * sizeof(float4) + sizeof(bool)) + sizeof(size_t) * 2;
+	}
 };
 
 #endif
