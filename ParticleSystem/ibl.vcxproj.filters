@@ -47,6 +47,9 @@
     <ClCompile Include="src\particleRenderer.cpp" />
     <ClCompile Include="src\glParticleRenderer.cpp" />
     <ClCompile Include="src\particleSystem.cpp" />
+    <ClCompile Include="src\fountainEffect.cpp" />
+    <ClCompile Include="src\effect.cpp" />
+    <ClCompile Include="src\demo_particles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="third_party">
@@ -64,11 +67,21 @@
     <ClInclude Include="src\data.hpp" />
     <ClInclude Include="src\demo_fx.hpp" />
     <ClInclude Include="src\ParticleData.h" />
-    <ClInclude Include="ParticleGenerator.h" />
     <ClInclude Include="src\ParticleEmitter.h" />
     <ClInclude Include="src\ParticleUpdater.hpp" />
     <ClInclude Include="src\particleRenderer.hpp" />
     <ClInclude Include="src\glParticleRenderer.hpp" />
     <ClInclude Include="src\ParticleSystem.hpp" />
+    <ClInclude Include="third_party\include\glad\glad.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fountainEffect.hpp" />
+    <ClInclude Include="src\effect.hpp" />
+    <ClInclude Include="particleGenerator.hpp" />
+    <ClInclude Include="src\demo_particles.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\shader.vs" />
+    <None Include="src\shader\shader.fs" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-#include "../ParticleGenerator.h"
+#include "../particleGenerator.hpp"
 
 class ParticleUpdater
 {

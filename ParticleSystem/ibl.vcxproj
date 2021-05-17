@@ -96,6 +96,9 @@
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_dll_wrapper.cpp" />
     <ClCompile Include="src\demo_fx.cpp" />
+    <ClCompile Include="src\demo_particles.cpp" />
+    <ClCompile Include="src\effect.cpp" />
+    <ClCompile Include="src\fountainEffect.cpp" />
     <ClCompile Include="src\glParticleRenderer.cpp" />
     <ClCompile Include="src\gl_helpers.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -127,13 +130,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ParticleGenerator.h" />
+    <ClInclude Include="particleGenerator.hpp" />
     <ClInclude Include="src\calc.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\data.hpp" />
     <ClInclude Include="src\demo.hpp" />
     <ClInclude Include="src\demo_dll_wrapper.hpp" />
     <ClInclude Include="src\demo_fx.hpp" />
+    <ClInclude Include="src\demo_particles.hpp" />
+    <ClInclude Include="src\effect.hpp" />
+    <ClInclude Include="src\fountainEffect.hpp" />
     <ClInclude Include="src\glParticleRenderer.hpp" />
     <ClInclude Include="src\gl_helpers.hpp" />
     <ClInclude Include="src\mesh_builder.hpp" />
@@ -143,6 +149,11 @@
     <ClInclude Include="src\ParticleSystem.hpp" />
     <ClInclude Include="src\ParticleUpdater.hpp" />
     <ClInclude Include="src\types.hpp" />
+    <ClInclude Include="third_party\include\glad\glad.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shader\shader.fs" />
+    <None Include="src\shader\shader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

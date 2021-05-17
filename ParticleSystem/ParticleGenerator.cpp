@@ -1,10 +1,12 @@
-#include "ParticleGenerator.h"
+#include "particleGenerator.hpp"
 
 #define M_PI 3.14159265358979323846
 
 float LinearRand(float min, float max)
 {
-	return (float)(rand() % (int)(max - min) + min);
+	if (max - min == 0)
+		return min;
+	return (float)((rand() % (int)(100*(max - min)))/100.f + min);
 }
 
 

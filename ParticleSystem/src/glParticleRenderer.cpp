@@ -5,9 +5,8 @@
 #include <assert.h>
 
 
-//#include <wgl_wgl.h>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
 
 
 void GLParticleRenderer::Generate(ParticleSystem* sys, bool)
@@ -25,6 +24,7 @@ void GLParticleRenderer::Generate(ParticleSystem* sys, bool)
 	glBindBuffer(GL_ARRAY_BUFFER, bufPos);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * count, nullptr, GL_STREAM_DRAW);
 	glEnableVertexAttribArray(0);
+	
 	/*
 	if (ogl_ext_ARB_vertex_attrib_binding)
 	{
@@ -34,13 +34,13 @@ void GLParticleRenderer::Generate(ParticleSystem* sys, bool)
 	}
 	else
 		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
-
+*/
 
 	glGenBuffers(1, &bufCol);
 	glBindBuffer(GL_ARRAY_BUFFER, bufCol);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * count, nullptr, GL_STREAM_DRAW);
 	glEnableVertexAttribArray(1);
-
+	/*
 	if (ogl_ext_ARB_vertex_attrib_binding)
 	{
 		glBindVertexBuffer(1, bufCol, 0, sizeof(float) * 4);

@@ -11,7 +11,7 @@ public:
 	virtual void Generate(double dt, ParticleData* p, size_t start, size_t end) = 0;
 };
 
-class BoxPosGen : ParticleGenerator
+class BoxPosGen : public ParticleGenerator
 {
 public:
 
@@ -28,7 +28,7 @@ public:
 	virtual void Generate(double dt, ParticleData* p, size_t start, size_t end) override;
 };
 
-class CirclePosGen : ParticleGenerator
+class CirclePosGen : public ParticleGenerator
 {
 public:
 	

@@ -29,6 +29,7 @@
 //#include "demo_mipmap.hpp"
 //#include "demo_texture_3d.hpp"
 #include "demo_dll_wrapper.hpp"
+#include "demo_particles.hpp"
 
 // TODO: Add demo include here
 
@@ -94,7 +95,7 @@ int main(int argc, char* argv[])
 
     glfwSetErrorCallback(debugGLFWCallback);
 
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -148,6 +149,7 @@ int main(int argc, char* argv[])
     int demoId = 2;
     std::vector<Demo*> demos;
     demos.push_back(new DemoFX(demoInputs));
+    demos.push_back(new DemoParticles(demoInputs));
 
 #ifdef USE_PAUL_DLL
     // Load some demo from dll
