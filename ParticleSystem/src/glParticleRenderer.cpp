@@ -33,8 +33,8 @@ void GLParticleRenderer::Generate(ParticleSystem* sys, bool)
 		glVertexAttribBinding(0, 0);
 	}
 	else
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
 */
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
 
 	glGenBuffers(1, &bufCol);
 	glBindBuffer(GL_ARRAY_BUFFER, bufCol);
@@ -48,8 +48,8 @@ void GLParticleRenderer::Generate(ParticleSystem* sys, bool)
 		glVertexAttribBinding(1, 1);
 	}
 	else
-		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
 	*/
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
 
 	//glBindVertexBuffer(0, positionBufferHandle, 0, sizeof(GLfloat)* 3);
 	//glBindVertexBuffer(1, colorBufferHandle, 0, sizeof(GLfloat)* 3);

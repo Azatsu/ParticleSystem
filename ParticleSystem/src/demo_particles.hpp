@@ -23,5 +23,6 @@ public:
     void RenderScene(const DemoInputs& inputs, double dt);
 
     GLuint program;
+    GLuint tex;
 
 };

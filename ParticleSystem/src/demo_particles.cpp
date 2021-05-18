@@ -9,8 +9,6 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
     program = gl::CreateBasicProgram(
         // Vertex shader
         R"GLSL(
-        #version 430
-
         uniform mat4 projection;
         uniform mat4 view;
         uniform mat4 model;
@@ -22,8 +20,8 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
         void main() 
         {
-            vec4 eyePos = view * model * gl_Vertex;
-            gl_Position = matProjection * eyePos;
+            vec4 eyePos = view * model;
+            gl_Position = projection * eyePos;
 
 	        outColor = vColor;
 
@@ -35,9 +33,7 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
         // Fragment shader
         R"GLSL(
-        #version 430
-
-        uniform sampler2D tex;
+        //uniform sampler2D tex;
 
         in vec4 outColor;
 
@@ -45,8 +41,8 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
         void main() 
         {
-	        vFragColor = texture(tex, gl_PointCoord) * outColor;
-            
+	       // vFragColor = texture(tex, gl_PointCoord) * outColor;
+            vFragColor = outColor;
         }
         )GLSL"
     );
@@ -102,6 +98,5 @@ void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
 
     effect->Render();
 
-    glUseProgram(0);
 }
 
