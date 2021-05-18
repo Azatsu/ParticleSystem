@@ -68,25 +68,21 @@ DemoFX::DemoFX(const DemoInputs& inputs)
         // Vertex shader
         R"GLSL(
 
+        layout(location = 0) in vec3 aPosition;
+        layout(location = 1) in vec4 aColor;
+        layout(location = 2) in vec2 aUV;
+
+        out vec4 vColor;
+        out vec2 vUV;
+
         uniform mat4 projection;
         uniform mat4 view;
         uniform mat4 model;
-
-        layout(location = 0) in vec4 vVertex;
-        layout(location = 1) in vec4 vColor;
-
-        out vec4 outColor;
-
-        void main() 
+        void main()
         {
-            vec4 eyePos = view * model * gl_Vertex;
-            gl_Position = matProjection * eyePos;
-
-	        outColor = vColor;
-
-            float dist = length(eyePos.xyz);
-	        float att = inversesqrt(0.1f*dist);
-	        gl_PointSize = 2.0f * att;
+            gl_Position = projection * view * model * vec4(aPosition, 1.0);
+            vColor = aColor;
+            vUV = aUV;
         }
         )GLSL",
 
@@ -94,6 +90,7 @@ DemoFX::DemoFX(const DemoInputs& inputs)
         // Fragment shader
         R"GLSL(
         in vec4 vColor;
+        in vec2 vUV;
 
         out vec4 fragColor;
 
@@ -106,10 +103,10 @@ DemoFX::DemoFX(const DemoInputs& inputs)
 
         void main()
         {
-            vec4 color1 = vec4(texture(noise,vec2(0, scroll*0.4)).r);
-            vec4 color2 = vec4(texture(noise, ( vec2(scroll*0.9, 0))* 0.5).r);
-            vec4 color3 = vec4(texture(noise, ( scroll * 0.3) * 2.0).r);
-            vec4 color4 = vec4(texture(mask).rgba);
+            vec4 color1 = vec4(texture(noise, vUV + vec2(0, scroll*0.4)).r);
+            vec4 color2 = vec4(texture(noise, (vUV + vec2(scroll*0.9, 0))* 0.5).r);
+            vec4 color3 = vec4(texture(noise, (vUV + scroll * 0.3) * 2.0).r);
+            vec4 color4 = vec4(texture(mask, vUV).rgba);
 
             vec4 newCol = (color1 * color2 * 2 * color3 * 2 * color4);
             //if (newCol.a < 0.1)
@@ -118,20 +115,6 @@ DemoFX::DemoFX(const DemoInputs& inputs)
 
             fragColor = newCol;
             
-        }
-
-
-
-
-        uniform sampler2D tex;
-
-        in vec4 outColor;
-
-        out vec4 vFragColor;
-
-        void main() 
-        {
-	        vFragColor = texture(tex, gl_PointCoord) * outColor;
         }
         )GLSL"
     );
