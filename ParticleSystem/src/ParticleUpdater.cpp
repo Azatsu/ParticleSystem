@@ -144,9 +144,9 @@ void PosColorUpdater::Update(float dt, ParticleData* p)
 		scaler = (pos[i].x - minPos.x) / diffr;
 		scaleg = (pos[i].y - minPos.y) / diffg;
 		scaleb = (pos[i].z - minPos.z) / diffb;
-		col[i].r = scaler;// glm::mix(p->m_startCol[i].r, p->m_endCol[i].r, scaler);
-		col[i].g = scaleg;// glm::mix(p->m_startCol[i].g, p->m_endCol[i].g, scaleg);
-		col[i].b = scaleb;// glm::mix(p->m_startCol[i].b, p->m_endCol[i].b, scaleb);
+		col[i].r = scaler;
+		col[i].g = scaleg;
+		col[i].b = scaleb;
 		col[i].a = Mix(startCol[i].a, endCol[i].a, t[i].z);
 	}
 }

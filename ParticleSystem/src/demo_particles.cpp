@@ -20,14 +20,14 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
         void main() 
         {
-            vec4 eyePos = view * model;
-            gl_Position = projection * eyePos;
+            vec4 eyePos = view * model * vVertex;
+            gl_Position = eyePos * projection;
 
 	        outColor = vColor;
 
             float dist = length(eyePos.xyz);
-	        float att = inversesqrt(0.1f*dist);
-	        gl_PointSize = 2.0f * att;
+	        float att = inversesqrt(0.1*dist);
+	        gl_PointSize = 2.0 * att;
         }
         )GLSL",
 
@@ -57,12 +57,12 @@ DemoParticles::~DemoParticles()
 void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
 {
     mainCamera.UpdateFreeFly(inputs.cameraInputs);
-
+    
     static float time = 0.f;
     time += 1.f / 60.f;
 
-    UpdateParticles(1.f / 60.f);
-    RenderScene(inputs, 1.f / 60.f);
+    UpdateParticles(inputs.deltaTime);
+    RenderScene(inputs, inputs.deltaTime);
 }
 
 void DemoParticles::Init()

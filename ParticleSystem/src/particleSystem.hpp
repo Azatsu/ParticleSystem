@@ -9,7 +9,7 @@
 
 class ParticleSystem
 {
-protected:
+public:
 	ParticleData particles;
 	ParticleData aliveParticles;
 
