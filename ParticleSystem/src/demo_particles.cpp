@@ -1,5 +1,6 @@
 #include "demo_particles.hpp"
 #include "gl_helpers.hpp"
+#include <iostream>
 
 DemoParticles::DemoParticles(const DemoInputs& inputs)
 {
@@ -12,6 +13,7 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
         uniform mat4 projection;
         uniform mat4 view;
         uniform mat4 model;
+        uniform mat4 pvm;
 
         layout(location = 0) in vec4 vVertex;
         layout(location = 1) in vec4 vColor;
@@ -21,13 +23,13 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
         void main() 
         {
             vec4 eyePos = view * vVertex;
-            gl_Position = projection * view * model * vVertex;
+            gl_Position = pvm * vVertex;
 
 	        outColor = vColor;
 
             float dist = length(eyePos.xyz);
-	        float att = inversesqrt(0.1*dist);
-	        gl_PointSize = 1000.0f * att;
+	        float att = sqrt(0.1*dist);
+	        gl_PointSize = 1000000000.0f * att;
         }
         )GLSL",
 
@@ -59,9 +61,10 @@ void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
     mainCamera.UpdateFreeFly(inputs.cameraInputs);
     
     static float time = 0.f;
-    time += 1.f / 60.f;
+    time += inputs.deltaTime;
 
-    fountainFX.ShowUI();
+    std::cout << 1.f/inputs.deltaTime << std::endl;
+    effect->ShowUI();
     UpdateParticles(inputs.deltaTime);
     RenderScene(inputs, inputs.deltaTime);
 }
@@ -69,7 +72,7 @@ void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
 void DemoParticles::Init()
 {
     effect = EffectFactory::Create("fountain");
-    effect->Initialize(10000);
+    effect->Initialize(100000);
     effect->InitializeRenderer();
 }
 
@@ -86,7 +89,6 @@ void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glDisable(GL_DEPTH_TEST);
 
 
     glUseProgram(program);
@@ -97,7 +99,8 @@ void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
 
     glUniformMatrix4fv(glGetUniformLocation(program, "projection"), 1, GL_FALSE, projection.e);
     glUniformMatrix4fv(glGetUniformLocation(program, "view")      , 1, GL_FALSE, view.e);
-    glUniformMatrix4fv(glGetUniformLocation(program, "model")     , 1, GL_FALSE, model.e);
+    glUniformMatrix4fv(glGetUniformLocation(program, "model"), 1, GL_FALSE, model.e);
+    glUniformMatrix4fv(glGetUniformLocation(program, "pvm")     , 1, GL_FALSE, (projection * view * model).e);
 
 
     effect->Render();

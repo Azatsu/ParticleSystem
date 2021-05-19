@@ -9,7 +9,7 @@ bool FountainEffect::Initialize(size_t numParticles)
 	//
 	// particles
 	//
-	const size_t NUM_PARTICLES = numParticles == 0 ? 10000 : numParticles;
+	const size_t NUM_PARTICLES = numParticles == 0 ? 100000 : numParticles;
 	system = std::make_shared<ParticleSystem>(NUM_PARTICLES);
 
 	//
@@ -32,13 +32,13 @@ bool FountainEffect::Initialize(size_t numParticles)
 	particleEmitter->AddGenerator(colGenerator);
 
 	auto velGenerator = std::make_shared<BasicVelGen>();
-	velGenerator->minStartVel = float4{ -0.05f, 0.22f, -0.05f, 0.0f };
-	velGenerator->maxStartVel = float4{ 0.05f, 0.25f, 0.05f, 0.0f };
+	velGenerator->minStartVel = float4{ -0.05f, 0.62f, -0.05f, 0.0f };
+	velGenerator->maxStartVel = float4{ 0.05f, 0.85f, 0.05f, 0.0f };
 	particleEmitter->AddGenerator(velGenerator);
 
 	auto timeGenerator = std::make_shared<BasicTimeGen>();
-	timeGenerator->minTime = 3.0f;
-	timeGenerator->maxTime = 4.0f;
+	timeGenerator->minTime = 5.0f;
+	timeGenerator->maxTime = 7.0f;
 	particleEmitter->AddGenerator(timeGenerator);
 	system->AddEmitter(particleEmitter);
 
@@ -76,18 +76,33 @@ void FountainEffect::Clean()
 
 void FountainEffect::ShowUI()
 {
-	if (posGenerator == nullptr)
-		std::cout << "imp2" << std::endl;
 
-	//if (posGenerator == nullptr)
-	//	std::cout << "imp" << std::endl;
-	/*if (system->emitters != nullptr)
+
+	if (colGenerator != nullptr)
 	{
-		std::cout << "oui" << std::endl;
 		float minStartCol[4] = { colGenerator->minStartCol.x, colGenerator->minStartCol.y, colGenerator->minStartCol.z, colGenerator->minStartCol.w };
-		ImGui::ColorEdit4("minStartColor", minStartCol);
-		colGenerator->minStartCol = { minStartCol[0], minStartCol[1], minStartCol[2], minStartCol[3] };
-	}*/
+		if (ImGui::ColorEdit4("minStartColor", minStartCol))
+			colGenerator->minStartCol = { minStartCol[0], minStartCol[1], minStartCol[2], minStartCol[3] };
+	}
+	if (colGenerator != nullptr)
+	{
+		float maxStartCol[4] = { colGenerator->maxStartCol.x, colGenerator->maxStartCol.y, colGenerator->maxStartCol.z, colGenerator->maxStartCol.w };
+		if(ImGui::ColorEdit4("maxStartColor", maxStartCol))
+			colGenerator->maxStartCol = { maxStartCol[0], maxStartCol[1], maxStartCol[2], maxStartCol[3] };
+	}
+
+	if (colGenerator != nullptr)
+	{
+		float minEndCol[4] = { colGenerator->minEndCol.x, colGenerator->minEndCol.y, colGenerator->minEndCol.z, colGenerator->minEndCol.w };
+		if (ImGui::ColorEdit4("minEndColor", minEndCol))
+			colGenerator->minEndCol = { minEndCol[0], minEndCol[1], minEndCol[2], minEndCol[3] };
+	}
+	if (colGenerator != nullptr)
+	{
+		float maxEndCol[4] = { colGenerator->maxEndCol.x, colGenerator->maxEndCol.y, colGenerator->maxEndCol.z, colGenerator->maxEndCol.w };
+		if (ImGui::ColorEdit4("maxEndColor", maxEndCol))
+			colGenerator->maxEndCol = { maxEndCol[0], maxEndCol[1], maxEndCol[2], maxEndCol[3] };
+	}
 	//ImGui::ColorEdit4("maxStartColor", &colGenerator->maxStartCol.x);
 
 	//ImGui::ColorEdit4("minEndColor", &colGenerator->minEndCol.x);
@@ -110,8 +125,8 @@ void FountainEffect::Update(double dt)
 	static double time = 0.0;
 	time += dt;
 
-	posGenerator->pos.x = 0.1f * sin((float)time * 2.5f);
-	posGenerator->pos.z = 0.1f * cos((float)time * 2.5f);
+	posGenerator->pos.x = 0.9f * sin((float)time * 2.5f);
+	posGenerator->pos.z = 0.9f * cos((float)time * 2.5f);
 }
 
 void FountainEffect::CpuUpdate(double dt)
