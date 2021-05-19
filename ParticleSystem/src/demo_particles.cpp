@@ -20,14 +20,14 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
         void main() 
         {
-            vec4 eyePos = view * model * vVertex;
-            gl_Position = eyePos * projection;
+            vec4 eyePos = view * vVertex;
+            gl_Position = projection * view * model * vVertex;
 
 	        outColor = vColor;
 
             float dist = length(eyePos.xyz);
 	        float att = inversesqrt(0.1*dist);
-	        gl_PointSize = 2.0 * att;
+	        gl_PointSize = 1000.0f * att;
         }
         )GLSL",
 
@@ -61,6 +61,7 @@ void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
     static float time = 0.f;
     time += 1.f / 60.f;
 
+    fountainFX.ShowUI();
     UpdateParticles(inputs.deltaTime);
     RenderScene(inputs, inputs.deltaTime);
 }
@@ -68,7 +69,7 @@ void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
 void DemoParticles::Init()
 {
     effect = EffectFactory::Create("fountain");
-    effect->Initialize(1000);
+    effect->Initialize(10000);
     effect->InitializeRenderer();
 }
 
@@ -81,6 +82,9 @@ void DemoParticles::UpdateParticles(double dt)
 
 void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
 {
+    glEnable(GL_DEPTH_TEST);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glDisable(GL_DEPTH_TEST);
 
@@ -97,6 +101,7 @@ void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
 
 
     effect->Render();
+    glUseProgram(0);
 
 }
 

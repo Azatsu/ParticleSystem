@@ -27,8 +27,7 @@ public:
 	bool InitializeRenderer() override;
 	void Reset() override { system->Reset(); }
 	void Clean() override;
-	void AddUI() override;
-	void RemoveUI() override;
+	void ShowUI() override;
 
 	void Update(double dt) override;
 	void CpuUpdate(double dt) override;

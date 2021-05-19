@@ -17,8 +17,7 @@ public:
 	virtual bool InitializeRenderer() = 0;
 	virtual void Reset() = 0;
 	virtual void Clean() = 0;
-	virtual void AddUI() = 0;
-	virtual void RemoveUI() = 0;
+	virtual void ShowUI() = 0;
 
 	virtual void Update(double dt) = 0;
 	virtual void CpuUpdate(double dt) = 0;

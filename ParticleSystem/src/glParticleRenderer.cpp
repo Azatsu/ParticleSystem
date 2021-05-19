@@ -77,11 +77,6 @@ void GLParticleRenderer::Render()
 {
 	glBindVertexArray(vao);
 
-
-	std::cout << system->particles.pos.get()->x << std::endl;
-	std::cout << system->particles.pos.get()->y << std::endl;
-	std::cout << system->particles.pos.get()->z << std::endl;
-
 	const size_t count = system->NumAliveParticles();
 	if (count > 0)
 		glDrawArrays(GL_POINTS, 0, count);
