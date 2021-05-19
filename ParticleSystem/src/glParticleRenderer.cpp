@@ -24,40 +24,14 @@ void GLParticleRenderer::Generate(ParticleSystem* sys, bool)
 	glBindBuffer(GL_ARRAY_BUFFER, bufPos);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * count, nullptr, GL_STREAM_DRAW);
 	glEnableVertexAttribArray(0);
-	
-	/*
-	if (ogl_ext_ARB_vertex_attrib_binding)
-	{
-		glBindVertexBuffer(0, bufPos, 0, sizeof(float) * 4);
-		glVertexAttribFormat(0, 4, GL_FLOAT, GL_FALSE, 0);
-		glVertexAttribBinding(0, 0);
-	}
-	else
-*/
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
 
 	glGenBuffers(1, &bufCol);
 	glBindBuffer(GL_ARRAY_BUFFER, bufCol);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * count, nullptr, GL_STREAM_DRAW);
 	glEnableVertexAttribArray(1);
-	/*
-	if (ogl_ext_ARB_vertex_attrib_binding)
-	{
-		glBindVertexBuffer(1, bufCol, 0, sizeof(float) * 4);
-		glVertexAttribFormat(1, 4, GL_FLOAT, GL_FALSE, 0);
-		glVertexAttribBinding(1, 1);
-	}
-	else
-	*/
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, (4) * sizeof(float), (void*)((0) * sizeof(float)));
 
-	//glBindVertexBuffer(0, positionBufferHandle, 0, sizeof(GLfloat)* 3);
-	//glBindVertexBuffer(1, colorBufferHandle, 0, sizeof(GLfloat)* 3);
-
-	//glVertexAttribFormat(0, 3, GL_FLOAT, GL_FALSE, 0);
-	//glVertexAttribBinding(0, 0);
-	//glVertexAttribFormat(1, 3, GL_FLOAT, GL_FALSE, 0);
-	//glVertexAttribBinding(1, 1);
 
 	glBindVertexArray(0);
 

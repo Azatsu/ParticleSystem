@@ -32,8 +32,8 @@ bool FountainEffect::Initialize(size_t numParticles)
 		particleEmitter->AddGenerator(colGenerator);
 
 		auto velGenerator = std::make_shared<BasicVelGen>();
-		velGenerator->minStartVel = float4{ -0.05f, 0.22f, -0.05f, 0.0f };
-		velGenerator->maxStartVel = float4{ 0.05f, 0.25f, 0.05f, 0.0f };
+		velGenerator->minStartVel = float4{ -0.5f, 1.2f, -0.5f, 0.0f };
+		velGenerator->maxStartVel = float4{ 0.5f, 1.5f, 0.5f, 0.0f };
 		particleEmitter->AddGenerator(velGenerator);
 
 		auto timeGenerator = std::make_shared<BasicTimeGen>();
