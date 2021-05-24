@@ -3,9 +3,9 @@
 
 #include <vector>
 
-#include "ParticleData.h"
-#include "ParticleEmitter.h"
-#include "ParticleUpdater.hpp"
+#include "particleData.hpp"
+#include "particleEmitter.hpp"
+#include "particleUpdater.hpp"
 
 class ParticleSystem
 {

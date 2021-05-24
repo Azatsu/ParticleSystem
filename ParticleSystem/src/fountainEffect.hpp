@@ -3,10 +3,10 @@
 
 #include "effect.hpp"
 #include <memory>
-#include "ParticleData.h"
-#include "../particleGenerator.hpp"
+#include "particleData.hpp"
+#include "particleGenerator.hpp"
 #include "particleRenderer.hpp"
-#include "ParticleUpdater.hpp"
+#include "particleUpdater.hpp"
 #include "particleSystem.hpp"
 
 

@@ -42,7 +42,6 @@
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_fx.cpp" />
     <ClCompile Include="src\ParticleData.cpp" />
-    <ClCompile Include="ParticleGenerator.cpp" />
     <ClCompile Include="src\ParticleUpdater.cpp" />
     <ClCompile Include="src\particleRenderer.cpp" />
     <ClCompile Include="src\glParticleRenderer.cpp" />
@@ -50,6 +49,7 @@
     <ClCompile Include="src\fountainEffect.cpp" />
     <ClCompile Include="src\effect.cpp" />
     <ClCompile Include="src\demo_particles.cpp" />
+    <ClCompile Include="src\particleGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="third_party">
@@ -77,8 +77,8 @@
     </ClInclude>
     <ClInclude Include="src\fountainEffect.hpp" />
     <ClInclude Include="src\effect.hpp" />
-    <ClInclude Include="particleGenerator.hpp" />
     <ClInclude Include="src\demo_particles.hpp" />
+    <ClInclude Include="src\particleGenerator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shader\shader.vs" />

@@ -1,5 +1,5 @@
 #include "glParticleRenderer.hpp"
-#include "ParticleData.h"
+#include "particleData.hpp"
 #include "particleSystem.hpp"
 
 #include <assert.h>

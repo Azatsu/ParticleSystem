@@ -124,7 +124,6 @@ void FountainEffect::Update(double dt)
 
 	static double time = 0.0;
 	time += dt;
-
 	posGenerator->pos.x = 0.9f * sin((float)time * 2.5f);
 	posGenerator->pos.z = 0.9f * cos((float)time * 2.5f);
 }

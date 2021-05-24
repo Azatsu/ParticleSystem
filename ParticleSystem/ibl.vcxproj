@@ -91,7 +91,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ParticleGenerator.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\data.cpp" />
     <ClCompile Include="src\demo_dll_wrapper.cpp" />
@@ -104,6 +103,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mesh_builder.cpp" />
     <ClCompile Include="src\ParticleData.cpp" />
+    <ClCompile Include="src\particleGenerator.cpp" />
     <ClCompile Include="src\particleRenderer.cpp" />
     <ClCompile Include="src\particleSystem.cpp" />
     <ClCompile Include="src\ParticleUpdater.cpp" />
@@ -130,7 +130,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="particleGenerator.hpp" />
     <ClInclude Include="src\calc.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\data.hpp" />
@@ -145,6 +144,7 @@
     <ClInclude Include="src\mesh_builder.hpp" />
     <ClInclude Include="src\ParticleData.h" />
     <ClInclude Include="src\ParticleEmitter.h" />
+    <ClInclude Include="src\particleGenerator.hpp" />
     <ClInclude Include="src\particleRenderer.hpp" />
     <ClInclude Include="src\ParticleSystem.hpp" />
     <ClInclude Include="src\ParticleUpdater.hpp" />

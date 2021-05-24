@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 
-#include "../particleGenerator.hpp"
+#include "particleGenerator.hpp"
 
 class ParticleEmitter
 {

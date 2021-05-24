@@ -28,8 +28,8 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 	        outColor = vColor;
 
             float dist = length(eyePos.xyz);
-	        float att = sqrt(0.1*dist);
-	        gl_PointSize = 1000000000.0f * att;
+	        float att = inversesqrt(0.1*dist);
+	        gl_PointSize = 2.5f * att;
         }
         )GLSL",
 
@@ -72,7 +72,7 @@ void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
 void DemoParticles::Init()
 {
     effect = EffectFactory::Create("fountain");
-    effect->Initialize(100000);
+    effect->Initialize(10000);
     effect->InitializeRenderer();
 }
 
@@ -88,9 +88,9 @@ void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
     glEnable(GL_DEPTH_TEST);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
+    glEnable(GL_PROGRAM_POINT_SIZE);
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
     glUseProgram(program);
 
     mat4 projection = mat4Perspective(calc::ToRadians(60.f), inputs.windowSize.x / inputs.windowSize.y, 0.01f, 50.f);

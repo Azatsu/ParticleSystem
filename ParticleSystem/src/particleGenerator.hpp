@@ -1,6 +1,6 @@
 #pragma once
 
-#include "src/ParticleData.h"
+#include "particleData.hpp"
 
 class ParticleGenerator
 {
