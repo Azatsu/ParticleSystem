@@ -148,8 +148,33 @@
     <ClInclude Include="src\particleRenderer.hpp" />
     <ClInclude Include="src\ParticleSystem.hpp" />
     <ClInclude Include="src\ParticleUpdater.hpp" />
+    <ClInclude Include="src\SOIL2\jo_jpeg.h" />
+    <ClInclude Include="src\SOIL2\pkm_helper.h" />
+    <ClInclude Include="src\SOIL2\pvr_helper.h" />
+    <ClInclude Include="src\SOIL2\stbi_DDS.h" />
+    <ClInclude Include="src\SOIL2\stbi_DDS_c.h" />
+    <ClInclude Include="src\SOIL2\stbi_ext.h" />
+    <ClInclude Include="src\SOIL2\stbi_ext_c.h" />
+    <ClInclude Include="src\SOIL2\stbi_pkm.h" />
+    <ClInclude Include="src\SOIL2\stbi_pkm_c.h" />
+    <ClInclude Include="src\SOIL2\stbi_pvr.h" />
+    <ClInclude Include="src\SOIL2\stbi_pvr_c.h" />
+    <ClInclude Include="src\SOIL2\stb_image_write.h" />
     <ClInclude Include="src\types.hpp" />
     <ClInclude Include="third_party\include\glad\glad.h" />
+    <ClInclude Include="third_party\SOIL2\jo_jpeg.h" />
+    <ClInclude Include="third_party\SOIL2\pkm_helper.h" />
+    <ClInclude Include="third_party\SOIL2\pvr_helper.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_DDS.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_DDS_c.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_ext.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_ext_c.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_pkm.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_pkm_c.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_pvr.h" />
+    <ClInclude Include="third_party\SOIL2\stbi_pvr_c.h" />
+    <ClInclude Include="third_party\SOIL2\stb_image.h" />
+    <ClInclude Include="third_party\SOIL2\stb_image_write.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shader\shader.fs" />

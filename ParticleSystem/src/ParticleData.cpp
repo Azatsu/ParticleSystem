@@ -1,4 +1,4 @@
-#include "ParticleData.h"
+#include "particleData.hpp"
 
 ParticleData::ParticleData(size_t maxCount)
 {

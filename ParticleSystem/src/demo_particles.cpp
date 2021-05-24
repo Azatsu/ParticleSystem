@@ -29,13 +29,13 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
             float dist = length(eyePos.xyz);
 	        float att = inversesqrt(0.1*dist);
-	        gl_PointSize = 2.5f * att;
+	        gl_PointSize = 3.f * att;
         }
         )GLSL",
 
         // Fragment shader
         R"GLSL(
-        //uniform sampler2D tex;
+        uniform sampler2D tex;
 
         in vec4 outColor;
 
@@ -43,13 +43,20 @@ DemoParticles::DemoParticles(const DemoInputs& inputs)
 
         void main() 
         {
-	       // vFragColor = texture(tex, gl_PointCoord) * outColor;
-            vFragColor = outColor;
+	        vFragColor = texture(tex, gl_PointCoord) * outColor;
+           // vFragColor = outColor;
         }
         )GLSL"
     );
 
+    glGenTextures(1, &tex);
+    glBindTexture(GL_TEXTURE_2D, tex);
+    gl::UploadImage("media/particle2.png");
+    gl::SetTextureDefaultParams(false);
+    
     Init();
+   
+
 
 }
 
@@ -63,7 +70,7 @@ void DemoParticles::UpdateAndRender(const DemoInputs& inputs)
     static float time = 0.f;
     time += inputs.deltaTime;
 
-    std::cout << 1.f/inputs.deltaTime << std::endl;
+    //std::cout << 1.f/inputs.deltaTime << std::endl;
     effect->ShowUI();
     UpdateParticles(inputs.deltaTime);
     RenderScene(inputs, inputs.deltaTime);
@@ -102,6 +109,8 @@ void DemoParticles::RenderScene(const DemoInputs& inputs, double dt)
     glUniformMatrix4fv(glGetUniformLocation(program, "model"), 1, GL_FALSE, model.e);
     glUniformMatrix4fv(glGetUniformLocation(program, "pvm")     , 1, GL_FALSE, (projection * view * model).e);
 
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex);
 
     effect->Render();
     glUseProgram(0);

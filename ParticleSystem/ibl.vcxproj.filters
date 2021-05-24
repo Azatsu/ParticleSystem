@@ -79,6 +79,57 @@
     <ClInclude Include="src\effect.hpp" />
     <ClInclude Include="src\demo_particles.hpp" />
     <ClInclude Include="src\particleGenerator.hpp" />
+    <ClInclude Include="third_party\SOIL2\jo_jpeg.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\pkm_helper.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\pvr_helper.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_DDS.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_DDS_c.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_ext.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_ext_c.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_pkm.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_pkm_c.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_pvr.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stbi_pvr_c.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stb_image.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\SOIL2\stb_image_write.h">
+      <Filter>third_party</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SOIL2\jo_jpeg.h" />
+    <ClInclude Include="src\SOIL2\pkm_helper.h" />
+    <ClInclude Include="src\SOIL2\pvr_helper.h" />
+    <ClInclude Include="src\SOIL2\stbi_DDS.h" />
+    <ClInclude Include="src\SOIL2\stbi_DDS_c.h" />
+    <ClInclude Include="src\SOIL2\stbi_ext.h" />
+    <ClInclude Include="src\SOIL2\stbi_ext_c.h" />
+    <ClInclude Include="src\SOIL2\stbi_pkm.h" />
+    <ClInclude Include="src\SOIL2\stbi_pkm_c.h" />
+    <ClInclude Include="src\SOIL2\stbi_pvr.h" />
+    <ClInclude Include="src\SOIL2\stbi_pvr_c.h" />
+    <ClInclude Include="src\SOIL2\stb_image_write.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shader\shader.vs" />
